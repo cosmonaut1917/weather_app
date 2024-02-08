@@ -44,4 +44,5 @@ searchInput.on('keyup', function (event) {
     if (event.keyCode === 13) {
         getApi()
     }
-})
+}) 
+// i fucking HATE GIT WITH A GOD DAMN PASSION
