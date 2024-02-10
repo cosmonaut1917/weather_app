@@ -1,8 +1,8 @@
-var apiKEY = 'f9318e6e5f17d9852d6500f0c55afb61'
-var searchInput = $('.search-input')
-var searchBtn = $('.search-btn')
+var apiKEY = '8242379471f3c504a5b519fefce4a5f3'
+var search_bar = $('.search-bar')
+var submitBtn = $('.submitBTN')
 function getApi() {
-    var city = searchInput.val();
+    var city = search_bar.val();
     var requestURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKEY;
     fetch(requestURL)
         .then(function (response) {
@@ -11,7 +11,7 @@ function getApi() {
         .then(function (data) {
             console.log(data)
 
-            $('.main-weather').empty()
+            $('.weather').empty()
             var dateUnix = data.dt; // change from unix
             var date = new Date(dateUnix * 1000).toLocaleDateString()
             var tempKelvin = data.main.temp; // The API default temperature unit is Kelvin
@@ -23,26 +23,28 @@ function getApi() {
             var iconURL = "https://openweathermap.org/img/wn/" + iconCode + ".png";
             // $('.search-history').append("<ul><ul>").addClass("ul")
             // $('.search-history').append('<li>' + city + '</li>').addClass("li")
-            var exitBtn = $('<button class="delete"></button>')
+            var exitBtn = $('.deleteBTN')
             exitBtn.on('click', function () {
-                $('.main-weather').empty()
+                $('.weather').empty()
             })
-            $(".main-weather").append(exitBtn)
-            $('.main-weather').append(`<h3>${data.name + ' ' + '(' + date + ')'}<img src="${iconURL}"></h3>`).addClass('main-weather-header');
-            $('.main-weather').append(`<p> Temp: ${tempFahrenheit}°F</p>`).addClass('weatherData');
-            $('.main-weather').append(`<p> Wind: ${windMPH} MPH</p>`).addClass('weatherData');
-            $('.main-weather').append(`<p> Humidity: ${humidity}%</p>`).addClass('weatherData');
-            $('.main-weather').css('background-color', 'rgba(255, 255, 255, 0.487)')
-            searchInput.val("");
+            $(".weather").append(exitBtn)
+            $('.weather').append(`<h3>${data.name + ' ' + '(' + date + ')'}<img src="${iconURL}"></h3>`).addClass('main-weather-header');
+            $('.weather').append(`<p> Temp: ${tempFahrenheit}°F</p>`).addClass('weatherData');
+            $('.weather').append(`<p> Wind: ${windMPH} MPH</p>`).addClass('weatherData');
+            $('.weather').append(`<p> Humidity: ${humidity}%</p>`).addClass('weatherData');
+            $('.weather').css('background-color', 'rgba(255, 255, 255, 0.487)')
+            search_bar.val("");
         })
 }
-searchBtn.on('click', function (event) {
+submitBtn.on('click', function (event) {
     getApi()
+    console.log('ping')
 })
 
-searchInput.on('keyup', function (event) {
+search_bar.on('keyup', function (event) {
     if (event.keyCode === 13) {
         getApi()
     }
-}) 
-// i fucking HATE GIT WITH A GOD DAMN PASSION
+})
+
+// i hate gits
