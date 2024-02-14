@@ -10,9 +10,11 @@
 <body>
     <div class="card">
         <div class="search">
-            <input type="text" class="search-bar">
-            <button id="submitBTN">submit</button>
-            <button id="deleteBTN">delete</button>
+            <input type="text" class="search-bar" placeholder="search your city">
+            <!-- <input type="text" class="zip_code" placeholder="search zipcode">
+            <input type="text" class="country_code" placeholder="search country code"> -->
+            <button class="submitBTN">submit</button>
+            <button class="deleteBTN">delete</button>
         </div>
         <div class="weather">
             <!-- <h2 class="city"></h2>
@@ -29,4 +31,6 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    <script src="script.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script>dayjs().format()</script>
 </html>
