@@ -3,9 +3,7 @@ var search_bar = $('.search-bar')
 var submitBtn = $('.submitBTN')
 var data = search_bar.val()
 var list =data.list
-var dt_txt =dt_txt
-// var dateArray = dateArray[0,6,14,21,30,38].split('YYYY-MM-DD')
-// var dateArray = dateTimeArray[0].split('-');
+
 function getApi() {
     var city = search_bar.val();
     
@@ -26,10 +24,10 @@ function getApi() {
             var windMPH = (wind * 2.2369).toFixed(2) // Convert meters/sec to miles/hour
             var humidity = data.main.humidity
             var iconCode = data.weather[0].icon;
+            var dt_text =data.list[i].dt_txt
             var iconURL = "https://openweathermap.org/img/wn/" + iconCode + ".png";
             var lat = data.coord.lat;
             var lon = data.coord.lon;
-            var dt_txt =dt_txt
             // $('.search-history').append("<ul><ul>").addClass("ul")
             // $('.search-history').append('<li>' + city + '</li>').addClass("li")
             var exitBtn = $('.deleteBTN')
@@ -47,7 +45,7 @@ function getApi() {
             $('.weather').append(`<p> Wind: ${windMPH} MPH</p>`).addClass('weatherData');
             $('.weather').append(`<p> Humidity: ${humidity}%</p>`).addClass('weatherData');
             $('.weather').css('background-color', 'rgba(255, 255, 255, 0.487)')
-            
+            $('.weather').append(`<h3>${data.name + ' ' + '(' + `${dt_text}` + ')'}<img src="${iconURL}"></h3>`)
 
             search_bar.val("");
             console.log(data.coord)
@@ -67,10 +65,17 @@ function fiveday(lat, lon) {
         
     })
     .then (function(data){
-        console.log(data)
+        console.log('five day data',data)
+        for(let i = 0; i < data.list.length; i = i + 8){
+            const dt_text = data.list[i].dt_txt;
+            console.log(data.list[i])
+            console.log(dt_text)
+            // $('.weather').append(`<h3>${data.name + ' ' + '(' + `${dt_text}` + ')'}></h3>`)
+            
+        }
+
     })
-    let dateArray = 'YYYY/MM/DD'
-    console.log(list.dt_txt)
+  
 }
 function daysOfWeek(params) {
     const weekday = [
