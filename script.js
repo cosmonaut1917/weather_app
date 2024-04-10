@@ -34,6 +34,14 @@ function getApi() {
             $('.weather').append(`<p> Humidity: ${humidity}%</p>`).addClass('weatherData');
             $('.weather').css('background-color', 'rgba(255, 255, 255, 0.487)')
             search_bar.val("");
+            localStorage.setItem('weatherData', JSON.stringify({
+                city: data.name,
+                date: date,
+                iconURL: iconURL,
+                tempFahrenheit: tempFahrenheit,
+                windMPH: windMPH,
+                humidity: humidity
+            }));
         })
 }
 submitBtn.on('click', function (event) {
