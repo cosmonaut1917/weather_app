@@ -3,7 +3,7 @@ var search_bar = $('.search-bar')
 var submitBtn = $('.submitBTN')
 function getApi() {
     var city = search_bar.val();
-    var requestURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKEY;
+    var requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKEY;
     fetch(requestURL)
         .then(function (response) {
             return response.json();
@@ -23,7 +23,7 @@ function getApi() {
             var iconURL = "https://openweathermap.org/img/wn/" + iconCode + ".png";
             // $('.search-history').append("<ul><ul>").addClass("ul")
             // $('.search-history').append('<li>' + city + '</li>').addClass("li")
-            var exitBtn = $('.deleteBTN')
+            var exitBtn = $('deleteBTN')
             exitBtn.on('click', function () {
                 $('.weather').empty()
             })
@@ -41,6 +41,7 @@ function getApi() {
                 tempFahrenheit: tempFahrenheit,
                 windMPH: windMPH,
                 humidity: humidity
+                
             }));
         })
 }
