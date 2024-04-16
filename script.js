@@ -49,10 +49,7 @@ $('#submitBTN').on('click', function() {
     getApi();
     console.log('ping');
 });
-$('#deleteBtn').on('click', function() {
-    $('.weather').empty();
-    console.log('ping');
-});
+
 search_bar.on('keyup', function (event) {
     if (event.keyCode === 13) {
         getApi()
