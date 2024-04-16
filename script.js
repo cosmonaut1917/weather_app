@@ -45,7 +45,7 @@ function getApi() {
             }));
         })
 }
-submitBtn.on('click', function (event) {
+$('#submitBtn').on('click', function (event) {
     getApi()
     console.log('ping')
 })
@@ -56,4 +56,3 @@ search_bar.on('keyup', function (event) {
     }
 })
 
-// i hate gits
