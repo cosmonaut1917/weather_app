@@ -20,10 +20,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [License](#license)
 
 ## Installation
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 n/a
-
 ## Usage
 
 Provide instructions and examples for use. Include screenshots as needed.
@@ -59,3 +56,20 @@ Badges aren't necessary, per se, but they demonstrate street cred. Badges let ot
 ## Features
 
 If your project has a lot of features, list them here.
+Just open the application in your default browser and enter your city.
+
+## Features
+
+- Search for a city to get current weather conditions
+- Displays temperature, humidity, wind speed, and more
+- User-friendly interface
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+MIT
+## Github
+github: cosmonaut1917

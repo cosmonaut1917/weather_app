@@ -24,9 +24,9 @@ function getApi() {
             // $('.search-history').append("<ul><ul>").addClass("ul")
             // $('.search-history').append('<li>' + city + '</li>').addClass("li")
             var exitBtn = $('deleteBTN')
-            // exitBtn.on('click', function () {
-            //     $('.weather').empty()
-            // })
+            exitBtn.on('click', function () {
+                $('.weather').empty()
+            })
             $(".weather").append(exitBtn)
             $('.weather').append(`<h3>${data.name + ' ' + '(' + date + ')'}<img src="${iconURL}"></h3>`).addClass('main-weather-header');
             $('.weather').append(`<p> Temp: ${tempFahrenheit}°F</p>`).addClass('weatherData');
@@ -41,6 +41,7 @@ function getApi() {
                 tempFahrenheit: tempFahrenheit,
                 windMPH: windMPH,
                 humidity: humidity
+                
             }));
         })
 }
