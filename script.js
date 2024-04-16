@@ -1,6 +1,6 @@
 var apiKEY = '8242379471f3c504a5b519fefce4a5f3'
 var search_bar = $('.search-bar')
-var submitBtn = $('.submitBTN')
+var submitBtn = $('submitBTN')
 function getApi() {
     var city = search_bar.val();
     var requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKEY;
@@ -55,4 +55,3 @@ search_bar.on('keyup', function (event) {
         getApi()
     }
 })
-
